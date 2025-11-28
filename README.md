@@ -119,18 +119,6 @@ Currently, I am architecting the future of **Human-Robot Interaction (HRI)**, en
 </div>
 
 ---
-
-## 🦇 WAYNE ENTERPRISES (EXPERIENCE)
-
-*   **ML Intern** @ BSES Delhi (Jun '24 - Aug '24)
-    *   *Mission: Robust multilingual address parsing for New Delhi using spaCy.*
-    *   *Impact: Significantly improved data quality for downstream electrical distribution systems.*
-*   **Digital Systems Lead** @ BITS Tech Fest (Feb '24 - May '24)
-    *   *Engineered the digital infrastructure for a multi-club tech festival.*
-*   **Technical Lead** @ Linux User's Group (Aug '23 - Mar '25)
-    *   *Mentoring the next generation of open-source vigilantes.*
----
-
 ## ⚡ GITHUB TROPHIES
 
 <div align="center">
