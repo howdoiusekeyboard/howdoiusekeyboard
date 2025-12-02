@@ -1,23 +1,22 @@
 <div align="center">
-    <video src="cra8bo_p.mp4" width="50%" autoplay loop muted playsinline></video>
-</div>
-
-<div align="center">
-  <h1 style="font-size: 3em; color: #00ff9d; text-shadow: 0 0 10px #00ff9d, 0 0 20px #00ff9d;">KUSHAGRA GOLASH</h1>
-  <h3 style="color: #bf00ff;">THE DARK KNIGHT OF CODE</h3>
+  <img src="header_animation.gif" width="100%" alt="Batcomputer Uplink" />
 </div>
 
 <p align="center">
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=25&duration=3000&pause=1000&color=00FF9D&center=true&vCenter=true&width=600&lines=Building+Intelligent+Digital+Twins;Mastering+ROS2+and+Robotics;Cracking+Cybersecurity+Puzzles;Innovating+with+Explainable+AI" alt="Typing SVG" />
-  </a>
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=25&duration=3000&pause=1000&color=00FF9D&center=true&vCenter=true&width=600&lines=Building+Intelligent+Digital+Twins;Mastering+ROS2+and+Robotics;Cracking+Cybersecurity+Puzzles;Innovating+with+Explainable+AI" alt="Typing SVG" />
 </p>
-
-
 
 <br />
 
-## 🦸‍♂️ BATCOMPUTER TELEMETRY
+<div align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=howdoiusekeyboard&theme=radical&no-frame=true&no-bg=true&margin-w=4&rank=SSS,SS,S,AAA,AA,A,B,C" alt="Trophies" />
+</div>
+
+<div align="center">
+  <h3 style="color: #bf00ff;">THE DARK KNIGHT OF CODE</h3>
+</div>
+
+## ![BATCOMPUTER TELEMETRY](https://img.shields.io/badge/BATCOMPUTER-TELEMETRY-0A0E12?style=for-the-badge&logo=grafana&logoColor=green)
 
 <div align="center">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=howdoiusekeyboard&theme=radical" alt="Profile Details" />
@@ -30,17 +29,12 @@
 
 <br />
 
-## 🦇 MISSION BRIEFING
+## ![MISSION BRIEFING](https://img.shields.io/badge/MISSION-BRIEFING-0A0E12?style=for-the-badge&logo=gitbook&logoColor=yellow)
 
 > "It's not who I am underneath, but what I do that defines me."
 
-I am a **Computer Science Senior** at BITS Pilani Dubai, specializing in **Robotics, Machine Learning, and Cybersecurity**. My mission is to bridge the gap between human intent and machine action through **Explainable AI (XAI)** and **Intelligent Digital Twins**.
 
-Currently, I am architecting the future of **Human-Robot Interaction (HRI)**, ensuring that autonomous systems are not just smart, but transparent and trustworthy.
-
----
-
-## ⚔️ GADGET LOADOUT (ARSENAL)
+## ![GADGET LOADOUT](https://img.shields.io/badge/GADGET-LOADOUT-0A0E12?style=for-the-badge&logo=kalilinux&logoColor=cyan)
 
 | **Module** | **Component Technologies** |
 | :--- | :--- |
@@ -52,11 +46,11 @@ Currently, I am architecting the future of **Human-Robot Interaction (HRI)**, en
 
 ---
 
-## 📂 MISSION LOGS (PROJECT ARCHIVE)
+## ![MISSION LOGS](https://img.shields.io/badge/MISSION-LOGS-0A0E12?style=for-the-badge&logo=gitbook&logoColor=yellow)
 
-### 👻 [GHOST IN THE MACHINE](https://github.com/howdoiusekeyboard)
+### ![PROJECT: GHOST](https://img.shields.io/badge/PROJECT-ALFRED-black?style=flat-square&logo=ghost&logoColor=white) [🔗](https://github.com/howdoiusekeyboard/ros2_navigation_project)
 **Status:** `ACTIVE` | **Classification:** UNDERGRADUATE SPECIAL PROJECT
-> *Autonomous agents operate as black boxes. In complex environments, inexplicable machines are liabilities. Trust is failing.*
+> *In complex environments, inexplicable machines are liabilities. Trust is failing.*
 
 *   **Tactical Solution:** Deployment of the Intelligent Digital Twin system. Fusing ROS2 Humble navigation stack with Gazebo simulation and Gemini LLM to create a robot with conscience.
 *   **Mission Parameters:**
@@ -65,18 +59,23 @@ Currently, I am architecting the future of **Human-Robot Interaction (HRI)**, en
     *   **Digital Twin Anomaly Detection:** ML-based deviation monitoring with >80% accuracy.
 *   **Tech Stack:** ROS2 | Gemini-API | React-TypeScript | Gazebo | Python | Whisper | SQLite | PyTorch
 
-### 🛰️ [ADAPTIVE SATELLITE VISION](https://github.com/howdoiusekeyboard)
-**Status:** `RESEARCH COMPLETE` | **Classification:** COMPUTER VISION RESEARCH
-> *Breakthrough: 5.7x speedup on 2048x2048 satellite imagery using Vision Transformers with adaptive resolution feature extraction.*
+### ![PROJECT: PORTFOLIO](https://img.shields.io/badge/PROJECT-PERSONAL_PORTFOLIO-black?style=flat-square&logo=vercel&logoColor=white) [🔗](https://kushagragolash.tech)
+**Status:** `PRODUCTION` | **Classification:** DIGITAL SHOWCASE
+> *Immersive portfolio with 95+ Lighthouse score, cyberpunk aesthetic, terminal animations, and production-grade analytics.*
 
-*   **Technical Achievements:**
-    *   **Baseline (Sliding Window):** 9408ms per image (81 ViT passes).
-    *   **Adaptive (Attention-Guided):** 1796ms per image (5.7x faster).
-    *   **Feature Similarity:** 88.4% maintained accuracy.
-*   **Model:** ViT-Large with SatMAE pretrained weights (FMoW dataset).
-*   **Tech Stack:** PyTorch | Vision Transformers | CUDA | timm | UC Merced Land Use Dataset
+*   **Technical Excellence:**
+    *   **Performance:** Next.js 15 App Router | SSR | WebP/AVIF optimization.
+    *   **Accessibility:** WCAG compliance | Axe-core testing | Keyboard navigation.
+    *   **Security:** CSP headers | SRI hashes | No-cache policies.
 
-### 🔮 [THE ORACLE (GraphLit)](https://github.com/howdoiusekeyboard)
+### ![PROJECT: ECOQUEST](https://img.shields.io/badge/PROJECT-ECOQUEST-black?style=flat-square&logo=leaf&logoColor=green) [🔗](https://github.com/howdoiusekeyboard/ecoquest)
+**Status:** `COMPLETED | AWARDED` | **Classification:** BEST PROJECT - BITS TECH FEST
+> *Gamified sustainability platform weaponizing psychology for good.*
+
+*   **Impact:** Engaged 200+ users in real-world eco-activities through competitive digital platform.
+*   **Tech Stack:** React-Native | Gamification Engine | Sustainability Analytics.
+
+### ![PROJECT: ORACLE](https://img.shields.io/badge/PROJECT-THE_ORACLE-black?style=flat-square&logo=neo4j&logoColor=white) [🔗](https://github.com/howdoiusekeyboard/the-oracle)
 **Status:** `PRODUCTION` | **Classification:** GRAPH DATABASE MANAGEMENT SYSTEM
 > *Data fragmentation in academic research is critical. Vital connections between papers are lost in linear databases.*
 
@@ -86,28 +85,23 @@ Currently, I am architecting the future of **Human-Robot Interaction (HRI)**, en
     *   **Multi-Hop Chain:** 24ms (vs 500ms+ SQL Recursive CTE).
 *   **Tech Stack:** Neo4j 5.26.12 | Cypher | Graph Data Science Library 2.22.0 | OpenJDK 17
 
-### 🎨 [CYBERPUNK PORTFOLIO WEBSITE](https://www.kushagragolash.tech)
-**Status:** `PRODUCTION` | **Classification:** DIGITAL SHOWCASE
-> *Immersive portfolio with 95+ Lighthouse score, cyberpunk aesthetic, terminal animations, and production-grade analytics.*
-
-*   **Technical Excellence:**
-    *   **Performance:** Next.js 15 App Router | SSR | WebP/AVIF optimization.
-    *   **Accessibility:** WCAG compliance | Axe-core testing | Keyboard navigation.
-    *   **Security:** CSP headers | SRI hashes | No-cache policies.
-
-### 🤖 [PILL-PAL (HACK-A-BOT 1st Place)](https://github.com/howdoiusekeyboard/Botless)
+### ![PROJECT: PILL-PAL](https://img.shields.io/badge/PROJECT-PILL_PAL-black?style=flat-square&logo=medical-cross&logoColor=red) [🔗](https://github.com/howdoiusekeyboard/pill-pal)
 **Status:** `COMPLETED | AWARDED` | **Classification:** HEALTHCARE AI
 > *AI-powered prescription reminder chatbot for elderly care using Botpress and Telegram API.*
 
 *   **Mission:** Demonstrably improved medication adherence through empathetic, timely interactions.
 *   **Recognition:** 1st Place Winner - HACK-A-BOT Hackathon 2025.
 
-### 🌿 [GOTHAM RECLAIMED (EcoQuest)](https://github.com/howdoiusekeyboard)
-**Status:** `COMPLETED | AWARDED` | **Classification:** BEST PROJECT - BITS TECH FEST
-> *Gamified sustainability platform weaponizing psychology for good.*
+### ![PROJECT: SATELLITE](https://img.shields.io/badge/PROJECT-ADAPTIVE_SATELLITE_VISION-black?style=flat-square&logo=satellite&logoColor=cyan) [🔗](https://github.com/howdoiusekeyboard/adaptive-satellite-vision)
+**Status:** `RESEARCH COMPLETE` | **Classification:** COMPUTER VISION RESEARCH
+> *Breakthrough: 5.7x speedup on 2048x2048 satellite imagery using Vision Transformers with adaptive resolution feature extraction.*
 
-*   **Impact:** Engaged 200+ users in real-world eco-activities through competitive digital platform.
-*   **Tech Stack:** React-Native | Gamification Engine | Sustainability Analytics.
+*   **Technical Achievements:**
+    *   **Baseline (Sliding Window):** 9408ms per image (81 ViT passes).
+    *   **Adaptive (Attention-Guided):** 1796ms per image (5.7x faster).
+    *   **Feature Similarity:** 88.4% maintained accuracy.
+*   **Model:** ViT-Large with SatMAE pretrained weights (FMoW dataset).
+*   **Tech Stack:** PyTorch | Vision Transformers | CUDA | timm | UC Merced Land Use Dataset
 
 
 <br />
@@ -119,11 +113,6 @@ Currently, I am architecting the future of **Human-Robot Interaction (HRI)**, en
 </div>
 
 ---
-## ⚡ GITHUB TROPHIES
-
-<div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=howdoiusekeyboard&theme=radical&no-frame=true&no-bg=true&margin-w=4" />
-</div>
 
 <div align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=howdoiusekeyboard&theme=radical&hide_border=true&background=0d1117&ring=bf00ff&fire=00ff9d&currStreakLabel=00ff9d" alt="streak stats" />
