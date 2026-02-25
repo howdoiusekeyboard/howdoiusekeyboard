@@ -1,0 +1,56 @@
+name: "Metrics Engine Pipeline"
+on:
+  # Schedule daily at midnight UTC
+  schedule:
+    - cron: '0 0 * * *'
+  # Allow manual trigger from GitHub Actions UI
+  workflow_dispatch:
+  # Trigger immediately when pushing to main
+  push:
+    branches: ["main", "master"]
+
+concurrency:
+  group: metrics
+  cancel-in-progress: true
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Essential: Allows action to push the SVG back to your repo
+    steps:
+      - name: "Generate Cyberpunk Metric Board"
+        uses: lowlighter/metrics@latest
+        with:
+          # Your Fine-Grained Personal Access Token
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: howdoiusekeyboard
+
+          # Core Aesthetics & Engine Settings
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: Asia/Dubai
+          config_theme: radical # Cyperpunk neon styling
+          config_animations: yes
+          config_padding: 0, 10
+
+          # 1. Bionic Trophies Plugin (Replaces github-profile-trophy)
+          plugin_trophies: yes
+          plugin_trophies_family: bionic
+          plugin_trophies_limit: 8
+
+          # 2. Isometric Calendar Plugin (3D Commit graph replacing static streaks)
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
+
+          # 3. Languages Plugin (Replaces github-readme-stats/top-langs)
+          plugin_languages: yes
+          plugin_languages_ignored: html, css, jupyter notebook, tex, makefile
+          plugin_languages_limit: 8
+          plugin_languages_details: percentage
+          
+          # 4. Habits Plugin (Shows coding hour heatmaps)
+          plugin_habits: yes
+          plugin_habits_days: 14
+          plugin_habits_facts: yes
+          plugin_habits_charts: yes
