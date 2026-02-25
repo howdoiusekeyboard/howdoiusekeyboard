@@ -30,14 +30,14 @@ jobs:
           template: classic
           base: header, activity, repositories
           config_timezone: Asia/Dubai
-          config_theme: radical # Cyperpunk neon styling
           config_animations: yes
           config_padding: 0, 10
 
-          # 1. Bionic Trophies Plugin (Replaces github-profile-trophy)
-          plugin_trophies: yes
-          plugin_trophies_family: bionic
-          plugin_trophies_limit: 8
+
+          # 1. Achievements Plugin (Replaces static trophies)
+          plugin_achievements: yes
+          plugin_achievements_limit: 8
+          plugin_achievements_display: compact
 
           # 2. Isometric Calendar Plugin (3D Commit graph replacing static streaks)
           plugin_isocalendar: yes
@@ -62,5 +62,3 @@ jobs:
           plugin_lines_sections: base
           plugin_lines_repositories_limit: 10
           plugin_lines_history_limit: 5
-          plugin_lines_color_added: "#2c974b"
-          plugin_lines_color_deleted: "#cb2431"
