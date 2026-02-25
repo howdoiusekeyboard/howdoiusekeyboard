@@ -19,12 +19,12 @@
 ## ![BATCOMPUTER TELEMETRY](https://img.shields.io/badge/BATCOMPUTER-TELEMETRY-0A0E12?style=for-the-badge&logo=grafana&logoColor=green)
 
 <div align="center">
-  <img height="195" src="https://github-readme-stats.vercel.app/api?username=howdoiusekeyboard&theme=radical&show_icons=true&count_private=true&include_all_commits=true&hide_border=true&title_color=00ff9d&icon_color=bf00ff" alt="GitHub Stats" />
+  <img height="195" src="https://github-readme-stats-fast.vercel.app/api?username=howdoiusekeyboard&theme=radical&show_icons=true&count_private=true&include_all_commits=true&hide_border=true&title_color=00ff9d&icon_color=bf00ff" alt="GitHub Stats" />
   <img height="195" src="https://github-readme-streak-stats.herokuapp.com/?user=howdoiusekeyboard&theme=radical&hide_border=true&background=0d1117&ring=bf00ff&fire=00ff9d&currStreakNum=00ff9d&currStreakLabel=00ff9d&sideNums=00ff9d&sideLabels=bf00ff&dates=00ff9d" alt="GitHub Streak" />
 </div>
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=howdoiusekeyboard&theme=radical&layout=compact&hide=html,css,jupyter%20notebook&hide_border=true&title_color=bf00ff" alt="Top Languages" />
+  <img src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=howdoiusekeyboard&theme=radical&layout=compact&hide=html,css,jupyter%20notebook&hide_border=true&title_color=bf00ff" alt="Top Languages" />
 </div>
 
 <br />
