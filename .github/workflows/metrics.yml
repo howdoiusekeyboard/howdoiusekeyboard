@@ -59,6 +59,3 @@ jobs:
           # 5. Lines of Code Plugin (Boosts perceived volume of contributions)
           plugin_lines: yes
           plugin_lines_delay: 15
-          plugin_lines_sections: base
-          plugin_lines_repositories_limit: 10
-          plugin_lines_history_limit: 5
