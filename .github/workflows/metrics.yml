@@ -28,7 +28,7 @@ jobs:
 
           # Core Aesthetics & Engine Settings
           template: classic
-          base: header, activity, community, repositories, metadata
+          base: header, activity, repositories
           config_timezone: Asia/Dubai
           config_theme: radical # Cyperpunk neon styling
           config_animations: yes
@@ -51,6 +51,13 @@ jobs:
           
           # 4. Habits Plugin (Shows coding hour heatmaps)
           plugin_habits: yes
+          plugin_habits_from: 200
           plugin_habits_days: 14
-          plugin_habits_facts: yes
+          plugin_habits_facts: no
           plugin_habits_charts: yes
+
+          # 5. Lines of Code Plugin (Boosts perceived volume of contributions)
+          plugin_lines: yes
+          plugin_lines_history_limit: 1
+          plugin_lines_repositories_limit: 4
+          plugin_lines_sections: base
