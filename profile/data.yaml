@@ -160,7 +160,10 @@ theme:
 widgets:
   metricsProfile:        { enabled: true,  file: metrics/profile.svg }
   metricsIsocalendar:    { enabled: true,  file: metrics/isocalendar.svg }
-  metricsAchievements:   { enabled: true,  file: metrics/achievements.svg }
+  # Disabled: lowlighter/metrics v3.34 achievements plugin queries
+  # deprecated `user.projects` API → renders "Unexpected error" SVG.
+  # GitHub's native profile achievements badges already cover this.
+  metricsAchievements:   { enabled: false, file: metrics/achievements.svg }
   screenshotGraphlit:    { enabled: true,  file: metrics/screenshot-graphlit.svg }
   screenshotAddressparser: { enabled: true, file: metrics/screenshot-addressparser.svg }
   # Verify metrics.lecoq.io is reachable + URL pattern is correct before enabling.

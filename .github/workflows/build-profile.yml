@@ -46,10 +46,11 @@ jobs:
           # to current branch. Sequential steps avoid race; render-and-commit
           # then pushes the final README on top of the SVG commits.
           config_timezone: UTC
-          base: header, activity, community, repositories
-          base_indepth: yes
-          repositories_affiliations: owner, collaborator, organization_member
-          repositories_forks: yes
+          # base: header ONLY — strips noise (releases/packages/stargazers/
+          # sponsors/watchers/repositories-summary) and eliminates the commit
+          # & issue counts that conflicted with the github-readme-stats widget
+          # below it. Keeps avatar, name, joined date, follower count.
+          base: header
 
       - name: Generate · isocalendar (half-year)
         uses: lowlighter/metrics@v3.34
@@ -67,23 +68,12 @@ jobs:
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
 
-      - name: Generate · achievements (compact)
-        uses: lowlighter/metrics@v3.34
-        continue-on-error: true
-        with:
-          token:    ${{ secrets.METRICS_TOKEN }}
-          user:     howdoiusekeyboard
-          template: classic
-          filename: metrics/achievements.svg
-          # Default output_action: commit — writes SVG to workspace AND commits
-          # to current branch. Sequential steps avoid race; render-and-commit
-          # then pushes the final README on top of the SVG commits.
-          config_timezone: UTC
-          base: ""
-          plugin_achievements: yes
-          plugin_achievements_display: compact
-          plugin_achievements_threshold: C
-          plugin_achievements_secrets: yes
+      # NOTE: achievements plugin removed in v5.
+      # Root cause: lowlighter/metrics@v3.34 queries `user.projects` (GitHub
+      # Projects classic), which GitHub deprecated in 2024. Every run produces
+      # "Unexpected error" in the rendered SVG. Project is dormant — no upstream
+      # fix. GitHub's native achievements badges on the profile page already
+      # cover this surface area; relying on those instead.
 
       - name: Generate · screenshot (addressparser)
         uses: lowlighter/metrics@v3.34
