@@ -295,9 +295,46 @@ function renderProjects(d: DataT): string {
 
 // ─── Profile SVG trimmer ─────────────────────────────────────────────────────
 // lowlighter/metrics' `base` sections are atomic — you can't skip individual
-// items within a section. We enable the full base then strip specific noisy /
-// duplicate field rows from the rendered SVG (HTML-in-foreignObject) by regex.
-// Patterns are matched against the visible text inside `<div class="field">`.
+// items within a section. We enable the full base then keep only fields whose
+// visible text matches a known-good pattern (allowlist approach: more robust
+// to lowlighter adding new noisy fields, vs. a denylist that would let any
+// unknown future field slip through).
+//
+// Each field block is bounded by a tempered greedy regex so matches can't
+// span across multiple fields.
+
+const FIELD_BLOCK_RE =
+  /<div class="field[^"]*">(?:(?!<div class="field)[\s\S])*?<\/div>/g;
+
+// Patterns that identify fields worth KEEPING. Tested against the
+// whitespace-collapsed visible text inside each field. A field is removed
+// if none of these match.
+const KEEP_PATTERNS: RegExp[] = [
+  /Joined GitHub/,            // tenure
+  /Contributed to \d+ rep/,   // contribution breadth
+  /\d+ Commit/,               // all-time commit count
+  /Pull request/,             // PR open + reviewed
+  /Issue/i,                   // issues opened + comments
+  /issue comment/,            // explicit
+  /Member of \d+ organization/,
+  /Starred \d+ rep/,          // your interests
+  /Watching \d+ rep/,         // your interests
+  /Prefers .* license/,       // licensing preference
+  /\d+ Release/,              // shipping cadence
+  /\d+ Package/,              // OSS surface area
+  /\d+ (MB|GB|KB) used/,      // storage volume
+  /\d+ (Forker|forks)/,       // reuse signal
+  /\d+ Watcher/,              // following signal on your repos
+  /calendar/,                 // the contribution-calendar visualization itself
+];
+
+// If the number of removed fields drifts from this baseline, lowlighter's
+// output likely changed shape — log a warning so it gets reviewed.
+const EXPECTED_REMOVED = 5;
+
+// Each removed field is roughly this tall in classic template (icon row + padding).
+// Slightly conservative (under-subtracts) so we don't risk clipping content.
+const FIELD_HEIGHT_PX = 22;
 
 function trimProfileSvg(): void {
   const svgPath = resolve(PROJECT_ROOT, "metrics/profile.svg");
@@ -306,38 +343,49 @@ function trimProfileSvg(): void {
   let content = readFileSync(svgPath, "utf8");
   const startLen = content.length;
 
-  // Strings whose containing <div class="field"> should be deleted.
-  const patterns = [
-    "Followed by",          // followers count (header)
-    "Following",            // following count (community)
-    "Sponsor",              // catches "N Sponsors" AND "Sponsoring N repositories"
-    "Stargazer",            // stargazers (duplicate of stats card)
-    "Most used language",   // duplicate of top-langs widget
-  ];
+  const allFields = content.match(FIELD_BLOCK_RE) ?? [];
+  const rejected: string[] = [];
 
-  let removed = 0;
-  for (const p of patterns) {
-    // Tempered greedy token (?:(?!<div class="field)[\s\S])*? matches any
-    // char that doesn't start another field-div, so each match is bounded
-    // to a single field block. Plain non-greedy [\s\S]*? would match
-    // across many fields because the regex engine accepts the first
-    // possible </div> after finding the pattern far downstream.
-    const re = new RegExp(
-      `<div class="field[^"]*">(?:(?!<div class="field)[\\s\\S])*?${p}(?:(?!<div class="field)[\\s\\S])*?</div>`,
-      "g",
-    );
-    const matches = content.match(re);
-    if (matches) removed += matches.length;
-    content = content.replace(re, "");
+  for (const block of allFields) {
+    const visible = block
+      .replace(/<[^>]+>/g, "")
+      .trim()
+      .replace(/\s+/g, " ");
+    const keep = KEEP_PATTERNS.some((re) => re.test(visible));
+    if (!keep) {
+      // Use literal-string replace (not regex) so special chars in the
+      // SVG (paths with backslashes etc.) don't get reinterpreted.
+      content = content.replace(block, "");
+      rejected.push(visible.slice(0, 80));
+    }
   }
 
-  if (removed > 0) {
-    writeFileSync(svgPath, content);
-    console.log(
-      `Trimmed profile.svg: removed ${removed} field(s) ` +
-        `(${(startLen - content.length).toLocaleString()} bytes)`,
+  const removed = rejected.length;
+  if (removed === 0) return;
+
+  // Assertion: catch drift between our baseline and upstream output.
+  if (removed !== EXPECTED_REMOVED) {
+    console.warn(
+      `⚠️  Trim count drift: removed ${removed}, expected ${EXPECTED_REMOVED}. ` +
+        `Lowlighter output likely changed — review KEEP_PATTERNS in profile/build.ts.`,
     );
   }
+
+  // Recompute SVG outer height so we don't leave empty space below content.
+  content = content.replace(
+    /<svg([^>]*?)height="(\d+)"/,
+    (_, attrs, hStr) => {
+      const newH = Math.max(80, parseInt(hStr, 10) - removed * FIELD_HEIGHT_PX);
+      return `<svg${attrs}height="${newH}"`;
+    },
+  );
+
+  writeFileSync(svgPath, content);
+  console.log(
+    `Trimmed profile.svg: kept ${allFields.length - removed}/${allFields.length} fields, ` +
+      `removed ${removed} (${(startLen - content.length).toLocaleString()} bytes).`,
+  );
+  console.log(`Rejected: ${rejected.map((t) => `"${t}"`).join(", ")}`);
 }
 
 async function main() {
