@@ -293,10 +293,55 @@ function renderProjects(d: DataT): string {
 
 // ─── Main ────────────────────────────────────────────────────────────────────
 
+// ─── Profile SVG trimmer ─────────────────────────────────────────────────────
+// lowlighter/metrics' `base` sections are atomic — you can't skip individual
+// items within a section. We enable the full base then strip specific noisy /
+// duplicate field rows from the rendered SVG (HTML-in-foreignObject) by regex.
+// Patterns are matched against the visible text inside `<div class="field">`.
+
+function trimProfileSvg(): void {
+  const svgPath = resolve(PROJECT_ROOT, "metrics/profile.svg");
+  if (!existsSync(svgPath)) return;
+
+  let content = readFileSync(svgPath, "utf8");
+  const startLen = content.length;
+
+  // Strings whose containing <div class="field"> should be deleted.
+  const patterns = [
+    "Followed by",          // followers count (header)
+    "Following",            // following count (community)
+    "Sponsor",              // catches "N Sponsors" AND "Sponsoring N repositories"
+    "Stargazer",            // stargazers (duplicate of stats card)
+    "Most used language",   // duplicate of top-langs widget
+  ];
+
+  let removed = 0;
+  for (const p of patterns) {
+    const re = new RegExp(
+      `<div class="field[^"]*">[\\s\\S]*?${p}[\\s\\S]*?</div>`,
+      "g",
+    );
+    const matches = content.match(re);
+    if (matches) removed += matches.length;
+    content = content.replace(re, "");
+  }
+
+  if (removed > 0) {
+    writeFileSync(svgPath, content);
+    console.log(
+      `Trimmed profile.svg: removed ${removed} field(s) ` +
+        `(${(startLen - content.length).toLocaleString()} bytes)`,
+    );
+  }
+}
+
 async function main() {
   const dataPath = resolve(PROJECT_ROOT, "profile/data.yaml");
   const templatePath = resolve(PROJECT_ROOT, "profile/template.md");
   const outPath = resolve(PROJECT_ROOT, "README.md");
+
+  // Strip duplicate/noisy field rows from profile.svg if it exists.
+  trimProfileSvg();
 
   const rawData = parseYaml(readFileSync(dataPath, "utf8"));
   const data = Data.parse(rawData);

@@ -46,11 +46,11 @@ jobs:
           # to current branch. Sequential steps avoid race; render-and-commit
           # then pushes the final README on top of the SVG commits.
           config_timezone: UTC
-          # base: header ONLY — strips noise (releases/packages/stargazers/
-          # sponsors/watchers/repositories-summary) and eliminates the commit
-          # & issue counts that conflicted with the github-readme-stats widget
-          # below it. Keeps avatar, name, joined date, follower count.
-          base: header
+          # Full base — keeps every unique signal (joined date, orgs, total
+          # repos, releases, packages, lines added/removed, forkers, watchers,
+          # contribution activity). Specific noisy/duplicate lines are then
+          # surgically stripped by trimProfileSvg() in profile/build.ts.
+          base: header, activity, community, repositories
 
       - name: Generate · isocalendar (half-year)
         uses: lowlighter/metrics@v3.34
