@@ -325,8 +325,11 @@ const KEEP_PATTERNS: RegExp[] = [
   /\d+ (MB|GB|KB) used/,      // storage volume
   /\d+ (Forker|forks)/,       // reuse signal
   /\d+ Watcher/,              // following signal on your repos
-  /calendar/,                 // the contribution-calendar visualization itself
 ];
+
+// The contribution calendar is a pure-SVG block with no visible text — it's
+// caught by class name rather than text content.
+const KEEP_BY_CLASS = /class="field calendar"/;
 
 // If the number of removed fields drifts from this baseline, lowlighter's
 // output likely changed shape — log a warning so it gets reviewed.
@@ -351,12 +354,13 @@ function trimProfileSvg(): void {
       .replace(/<[^>]+>/g, "")
       .trim()
       .replace(/\s+/g, " ");
-    const keep = KEEP_PATTERNS.some((re) => re.test(visible));
+    const keep =
+      KEEP_BY_CLASS.test(block) || KEEP_PATTERNS.some((re) => re.test(visible));
     if (!keep) {
       // Use literal-string replace (not regex) so special chars in the
       // SVG (paths with backslashes etc.) don't get reinterpreted.
       content = content.replace(block, "");
-      rejected.push(visible.slice(0, 80));
+      rejected.push(visible || "(empty/visual-only field)");
     }
   }
 
