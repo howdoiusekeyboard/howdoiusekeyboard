@@ -1,0 +1,167 @@
+name: build-profile
+
+on:
+  schedule:
+    - cron: '0 3 * * *'   # nightly @ 03:00 UTC
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+    paths:
+      - 'profile/**'
+      - '.github/workflows/build-profile.yml'
+
+permissions:
+  contents: write
+
+# A scheduled run that fires while a push-triggered build is still in flight
+# would commit stale SVGs over the fresh ones. Cancel the stale one.
+concurrency:
+  group: build-profile-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ── Phase 1 · Parallel matrix · one runner per metrics plugin ─────────────
+  # Each entry emits its own SVG. output_action: none keeps every job from
+  # racing to commit — the consolidator job (render-and-commit) commits once.
+  metrics:
+    name: metrics · ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        include:
+          - name: profile-card
+            filename: metrics/profile.svg
+            base: header, activity, community, repositories
+            plugin_isocalendar: "no"
+            plugin_isocalendar_duration: ""
+            plugin_achievements: "no"
+            plugin_achievements_display: ""
+            plugin_achievements_threshold: ""
+            plugin_achievements_secrets: "no"
+            plugin_screenshot: "no"
+            plugin_screenshot_title: ""
+            plugin_screenshot_url: ""
+
+          - name: isocalendar
+            filename: metrics/isocalendar.svg
+            base: ""
+            plugin_isocalendar: "yes"
+            plugin_isocalendar_duration: half-year
+            plugin_achievements: "no"
+            plugin_achievements_display: ""
+            plugin_achievements_threshold: ""
+            plugin_achievements_secrets: "no"
+            plugin_screenshot: "no"
+            plugin_screenshot_title: ""
+            plugin_screenshot_url: ""
+
+          - name: achievements
+            filename: metrics/achievements.svg
+            base: ""
+            plugin_isocalendar: "no"
+            plugin_isocalendar_duration: ""
+            plugin_achievements: "yes"
+            plugin_achievements_display: compact
+            plugin_achievements_threshold: C
+            plugin_achievements_secrets: "yes"
+            plugin_screenshot: "no"
+            plugin_screenshot_title: ""
+            plugin_screenshot_url: ""
+
+          - name: screenshot-addressparser
+            filename: metrics/screenshot-addressparser.svg
+            base: ""
+            plugin_isocalendar: "no"
+            plugin_isocalendar_duration: ""
+            plugin_achievements: "no"
+            plugin_achievements_display: ""
+            plugin_achievements_threshold: ""
+            plugin_achievements_secrets: "no"
+            plugin_screenshot: "yes"
+            plugin_screenshot_title: "addressparser · IndicBERT NER"
+            plugin_screenshot_url: https://addressparser.kushagragolash.tech
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Generate ${{ matrix.name }}
+        uses: lowlighter/metrics@v3.34
+        continue-on-error: true
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: howdoiusekeyboard
+          template: classic
+          output_action: none
+          config_timezone: UTC
+          filename: ${{ matrix.filename }}
+          base: ${{ matrix.base }}
+          plugin_isocalendar: ${{ matrix.plugin_isocalendar }}
+          plugin_isocalendar_duration: ${{ matrix.plugin_isocalendar_duration }}
+          plugin_achievements: ${{ matrix.plugin_achievements }}
+          plugin_achievements_display: ${{ matrix.plugin_achievements_display }}
+          plugin_achievements_threshold: ${{ matrix.plugin_achievements_threshold }}
+          plugin_achievements_secrets: ${{ matrix.plugin_achievements_secrets }}
+          plugin_screenshot: ${{ matrix.plugin_screenshot }}
+          plugin_screenshot_title: ${{ matrix.plugin_screenshot_title }}
+          plugin_screenshot_url: ${{ matrix.plugin_screenshot_url }}
+          plugin_screenshot_viewport: '{ "width": 1280, "height": 720 }'
+          plugin_screenshot_wait: 4000
+          plugin_screenshot_background: yes
+
+      - name: Upload ${{ matrix.name }} artifact
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: metrics-${{ matrix.name }}
+          path: ${{ matrix.filename }}
+          if-no-files-found: warn
+          retention-days: 1
+
+  # ── Phase 2 · Single runner · merge artifacts, render README, one commit ──
+  render-and-commit:
+    name: render & commit
+    needs: metrics
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Download every metrics artifact
+        uses: actions/download-artifact@v4
+        with:
+          path: metrics
+          pattern: metrics-*
+          merge-multiple: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - name: Install build deps
+        run: |
+          npm init -y > /dev/null
+          npm install --silent --no-save tsx yaml zod
+
+      - name: Render README from template
+        run: npx tsx profile/build.ts
+
+      - name: Commit + push if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md 2>/dev/null || true
+          # -f bypasses local .gitignore (which excludes metrics/*.svg dev stubs).
+          # On CI these files are the real Action-generated outputs — commit them.
+          git add -f metrics/*.svg metrics/*.png 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "No profile drift; nothing to commit."
+            exit 0
+          fi
+          git commit -m "build: profile refresh $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push

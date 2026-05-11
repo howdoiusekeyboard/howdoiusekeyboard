@@ -1,0 +1,171 @@
+# profile/data.yaml — single source of truth for README.md
+# Edited by hand; built into README.md by profile/build.ts on every push.
+
+identity:
+  name: Kushagra Golash
+  handle: howdoiusekeyboard
+  tagline: the operative who can't find the any key
+  role: Applied AI Software Engineer
+  company: stealth conglomerate
+  currentlyShipping:
+    - name: "@haptics"
+      version: v1
+      url: https://github.com/howdoiusekeyboard/haptics
+    - name: TrueVoice-MCP
+      version: ""
+      url: https://github.com/howdoiusekeyboard/TrueVoice-MCP
+
+operation: >-
+  Shipping cross-platform haptics for the mobile web ·
+  researching graph traversal for academic citation networks ·
+  maintaining MCP servers that enforce writing quality.
+
+currentTodos:
+  - { done: false, text: "`Ducati` → WebRTC realtime audio pipeline (hands-free voice-advisor mode)" }
+  - { done: false, text: "`graphlit-expansion` → real-time inference layer + GraphQL endpoint" }
+  - { done: false, text: "`TrueVoice-MCP` v2 → expanded slop taxonomy + tone fingerprinting" }
+  - { done: false, text: "`indian-address-parser` → Hindi-only fine-tune + Devanagari edge cases" }
+  - { done: false, text: "`@haptics/core` v2 → Web Audio API fallback for older iOS" }
+
+demos:
+  - name: graphlit
+    url: https://graphlit.kushagragolash.tech
+    logo: neo4j
+  - name: addressparser
+    url: https://addressparser.kushagragolash.tech
+    logo: fastapi
+
+projects:
+  - slug: TrueVoice-MCP
+    category: AI / MCP
+    paired: true
+    tagline: MCP server that detects AI slop and enforces human-style writing rules.
+    blurb: >-
+      Dual transport (stdio + HTTP), one-click install across Claude Desktop,
+      Cursor, VS Code, Claude Code. Scoring across utility, style, and
+      structure dimensions.
+    tech: [TypeScript, MCP SDK, Zod, Vercel]
+
+  - slug: Ducati
+    category: AI / MCP
+    paired: true
+    tagline: AI purchase advisor grounded in your real financial profile.
+    blurb: >-
+      Gemini Flash Lite vision scoring on Next.js 16 with Firebase 12 persistence.
+      Hands-free voice-advisor mode in flight — WebRTC pipeline for real-time
+      audio with OpenAI Realtime currently being wired.
+    tech: ["Next.js 16", "Gemini Flash Lite", "Firebase 12", "OpenAI Realtime", WebRTC, TypeScript]
+
+  - slug: graphlit-expansion
+    category: Graph / Backend
+    paired: false
+    demoUrl: https://graphlit.kushagragolash.tech
+    tagline: Academic citation graph expansion + hybrid recommender over OpenAlex and Neo4j.
+    blurb: >-
+      Idempotent BFS through 1,000-paper expansions in 20-40 min · Louvain
+      communities + PageRank + 4-component hybrid recommender (citation
+      overlap × topic affinity × author collaboration × velocity,
+      30/25/25/20 weighted) · 50 parallel fetches, 80 req/s · 895 papers
+      indexed across 8 communities · time-decayed personalised feeds with
+      cold-start fallback.
+    tech: ["Python 3.14", "Neo4j 6.1", FastAPI, Pydantic, Louvain, PageRank]
+
+  - slug: haptics
+    category: Hardware / Web
+    paired: false
+    npm: "@haptics/core v1.0.0"
+    tagline: Cross-platform haptic feedback library that finally makes iOS Safari vibrate.
+    blurb: >-
+      Unifies mobile-web vibration across iOS (the checkbox-switch workaround
+      for Safari 17.4+) and Android navigator.vibrate() · framework-agnostic
+      core plus typed bindings for React, Vue 3, Svelte 5 · 7 built-in presets
+      (selection, impact, success, warning, error) · respects
+      prefers-reduced-motion · capture-phase listeners preserve native gestures
+      · desktop silent no-op.
+    tech: [TypeScript, React, Vue 3, Svelte 5, iOS Safari 17.4+]
+
+  - slug: indian-address-parser
+    category: ML / NLP
+    paired: false
+    demoUrl: https://addressparser.kushagragolash.tech
+    tagline: Fine-tuned IndicBERTv2-SS + CRF that decomposes messy Indian addresses into 15 structured entities.
+    blurb: >-
+      94.3% F1 on test set (most entities >95%) · ~25 ms avg inference,
+      <30 ms p99 · Hindi (Devanagari) + English support · gazetteer-refined
+      transliteration · packaged as a pip-installable library with FastAPI
+      service and Gradio demo on Google Cloud Run.
+    tech: [PyTorch, IndicBERTv2-SS, CRF layer, FastAPI, Cloud Run]
+
+# LOADOUT — mirrors resume tech stack (BITS Pilani Dubai BE Comp Sci)
+# + active project evidence (Ducati / TrueVoice / graphlit / haptics / address parser).
+loadout:
+  Languages:
+    - { label: Python,       color: 3776AB,   logo: python,       logoColor: white }
+    - { label: TypeScript,   color: 3178C6,   logo: typescript,   logoColor: white }
+    - { label: JavaScript,   color: F7DF1E,   logo: javascript,   logoColor: black }
+    - { label: SQL,          color: 4479A1,   logo: postgresql,   logoColor: white }
+    - { label: "C++",        color: "00599C", logo: "c%2B%2B",    logoColor: white }
+    - { label: Java,         color: ED8B00,   logo: openjdk,      logoColor: white }
+
+  AI & ML:
+    - { label: PyTorch,         color: EE4C2C,   logo: pytorch,      logoColor: white }
+    - { label: TensorFlow,      color: FF6F00,   logo: tensorflow,   logoColor: white }
+    - { label: Transformers,    color: FFD43B,   logo: huggingface,  logoColor: black }
+    - { label: BERT,            color: FFD43B,   logo: huggingface,  logoColor: black }
+    - { label: ONNX,            color: 005CED,   logo: onnx,         logoColor: white }
+    - { label: scikit--learn,   color: F7931E,   logo: scikit-learn, logoColor: white }
+    - { label: LangChain,       color: 1C3C3C,   logo: langchain,    logoColor: white }
+    - { label: LangFlow,        color: "000000", logo: chainlink,    logoColor: white }
+    - { label: MCP,             color: "000000", logo: anthropic,    logoColor: white }
+    - { label: OpenAI,          color: "412991", logo: openai,       logoColor: white }
+    - { label: Gemini,          color: 8E75B2,   logo: googlegemini, logoColor: white }
+    - { label: Ollama,          color: "000000", logo: ollama,       logoColor: white }
+    - { label: Whisper,         color: "412991", logo: openai,       logoColor: white }
+
+  Web & APIs:
+    - { label: "Next.js 16",  color: "000000", logo: next.js,      logoColor: white }
+    - { label: "React 19",    color: 20232A,   logo: react,        logoColor: 61DAFB }
+    - { label: FastAPI,       color: "005571", logo: fastapi,      logoColor: white }
+    - { label: Express,       color: "000000", logo: express,      logoColor: white }
+    - { label: Node.js,       color: "339933", logo: node.js,      logoColor: white }
+    - { label: WebSockets,    color: "010101", logo: socket.io,    logoColor: white }
+    - { label: Tailwind,      color: 38B2AC,   logo: tailwind-css, logoColor: white }
+    - { label: WebRTC,        color: 333333,   logo: webrtc,       logoColor: white }
+    - { label: "Framer Motion", color: 0055FF, logo: framer,       logoColor: white }
+    - { label: GSAP,          color: 88CE02,   logo: greensock,    logoColor: white }
+
+  Infra & Data:
+    - { label: Docker,         color: 2496ED,   logo: docker,        logoColor: white }
+    - { label: "AWS EC2",      color: FF9900,   logo: amazon-aws,    logoColor: white }
+    - { label: GCP,            color: 4285F4,   logo: google-cloud,  logoColor: white }
+    - { label: Vercel,         color: "000000", logo: vercel,        logoColor: white }
+    - { label: Firebase,       color: FFCA28,   logo: firebase,      logoColor: black }
+    - { label: Supabase,       color: 3FCF8E,   logo: supabase,      logoColor: white }
+    - { label: PostgreSQL,     color: "316192", logo: postgresql,    logoColor: white }
+    - { label: Redis,          color: DC382D,   logo: redis,         logoColor: white }
+    - { label: MongoDB,        color: 47A248,   logo: mongodb,       logoColor: white }
+    - { label: Neo4j,          color: 4581C3,   logo: neo4j,         logoColor: white }
+    - { label: "GitHub Actions", color: 2088FF, logo: github-actions, logoColor: white }
+    - { label: n8n,            color: EA4B71,   logo: n8n,           logoColor: white }
+    - { label: Playwright,     color: 2EAD33,   logo: playwright,    logoColor: white }
+
+theme:
+  accent: 5EC8FF
+  background: 0D1117
+  text: c9d1d9
+  widgetTheme: tokyonight
+
+# Feature flags — toggle individual metrics plugins on/off here.
+# Files are generated by .github/workflows/build-profile.yml and live in metrics/.
+widgets:
+  metricsProfile:        { enabled: true,  file: metrics/profile.svg }
+  metricsIsocalendar:    { enabled: true,  file: metrics/isocalendar.svg }
+  metricsAchievements:   { enabled: true,  file: metrics/achievements.svg }
+  screenshotGraphlit:    { enabled: true,  file: metrics/screenshot-graphlit.svg }
+  screenshotAddressparser: { enabled: true, file: metrics/screenshot-addressparser.svg }
+  # Verify metrics.lecoq.io is reachable + URL pattern is correct before enabling.
+  # As of 2026-05-11 the host returned a 526 SSL error during build.
+  metricsInsightsLink:   { enabled: false, url: "https://metrics.lecoq.io/howdoiusekeyboard" }
+
+footer:
+  motto: Ship things that don't exist yet. Then ship the source.
