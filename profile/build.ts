@@ -317,8 +317,13 @@ function trimProfileSvg(): void {
 
   let removed = 0;
   for (const p of patterns) {
+    // Tempered greedy token (?:(?!<div class="field)[\s\S])*? matches any
+    // char that doesn't start another field-div, so each match is bounded
+    // to a single field block. Plain non-greedy [\s\S]*? would match
+    // across many fields because the regex engine accepts the first
+    // possible </div> after finding the pattern far downstream.
     const re = new RegExp(
-      `<div class="field[^"]*">[\\s\\S]*?${p}[\\s\\S]*?</div>`,
+      `<div class="field[^"]*">(?:(?!<div class="field)[\\s\\S])*?${p}(?:(?!<div class="field)[\\s\\S])*?</div>`,
       "g",
     );
     const matches = content.match(re);
