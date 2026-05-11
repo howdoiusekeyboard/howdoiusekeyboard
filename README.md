@@ -3,7 +3,7 @@
   Source of truth: profile/data.yaml
   Build:           profile/build.ts
   Pipeline:        .github/workflows/build-profile.yml (nightly @ 03:00 UTC)
-  Generated:       2026-05-11T16:11:17.858Z
+  Generated:       2026-05-11T16:17:02.183Z
 -->
 
 <div align="center">
@@ -119,11 +119,20 @@ Unifies mobile-web vibration across iOS (the checkbox-switch workaround for Safa
 
 ### · ML / NLP
 
-<div align="center">
-  <a href="https://github.com/howdoiusekeyboard/indian-address-parser">
-    <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=howdoiusekeyboard&repo=indian-address-parser&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=5EC8FF&icon_color=5EC8FF&description_lines_count=2&card_width=600" />
-  </a>
-</div>
+<table>
+<tr>
+<td width="55%" valign="middle">
+
+<a href="https://addressparser.kushagragolash.tech">
+  <img src="./metrics/screenshot-addressparser.svg" alt="indian-address-parser live screenshot" width="100%" />
+</a>
+
+</td>
+<td width="45%" valign="top">
+
+<a href="https://github.com/howdoiusekeyboard/indian-address-parser">
+  <img src="https://github-readme-stats-fast.vercel.app/api/pin/?username=howdoiusekeyboard&repo=indian-address-parser&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=5EC8FF&icon_color=5EC8FF&description_lines_count=2" />
+</a>
 
 **Fine-tuned IndicBERTv2-SS + CRF that decomposes messy Indian addresses into 15 structured entities.**
 
@@ -132,6 +141,10 @@ Unifies mobile-web vibration across iOS (the checkbox-switch workaround for Safa
 `PyTorch` · `IndicBERTv2-SS` · `CRF layer` · `FastAPI` · `Cloud Run`
 
 [**↗ Live Demo**](https://addressparser.kushagragolash.tech)
+
+</td>
+</tr>
+</table>
 
 
 ---
@@ -214,6 +227,12 @@ Unifies mobile-web vibration across iOS (the checkbox-switch workaround for Safa
 ## TELEMETRY 
 
 
+<div align="center">
+
+<img src="./metrics/profile.svg" alt="Account profile · lowlighter/metrics" width="98%" />
+
+</div>
+
 
 <div align="center">
 
@@ -223,7 +242,19 @@ Unifies mobile-web vibration across iOS (the checkbox-switch workaround for Safa
 <img src="https://streak-stats.demolab.com?user=howdoiusekeyboard&theme=tokyonight&hide_border=true&background=0D1117&ring=5EC8FF&fire=5EC8FF&currStreakLabel=5EC8FF&dates=c9d1d9&sideLabels=5EC8FF" height="180" alt="GitHub Streak" />
 
 
+<div align="center">
 
+<img src="./metrics/isocalendar.svg" alt="Half-year isocalendar · lowlighter/metrics" width="98%" />
+
+</div>
+
+
+
+<div align="center">
+
+<img src="./metrics/achievements.svg" alt="Achievements · lowlighter/metrics" width="98%" />
+
+</div>
 
 
 </div>
@@ -237,7 +268,7 @@ Unifies mobile-web vibration across iOS (the checkbox-switch workaround for Safa
 <sub>
   built from <code>profile/build.ts</code> ·
   pinged demos ·
-  regenerated nightly · last build <code>2026-05-11T16:11:17.858Z</code>
+  regenerated nightly · last build <code>2026-05-11T16:17:02.183Z</code>
 </sub>
 
 </div>
