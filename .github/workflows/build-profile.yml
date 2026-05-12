@@ -89,7 +89,7 @@ jobs:
           config_timezone: UTC
           base: ""
           plugin_screenshot: yes
-          plugin_screenshot_title: "addressparser · IndicBERT NER"
+          plugin_screenshot_title: "addressparser · IndicBERTv2-CRF NER"
           plugin_screenshot_url: https://addressparser.kushagragolash.tech
           plugin_screenshot_viewport: '{ "width": 1280, "height": 720 }'
           plugin_screenshot_wait: 4000
