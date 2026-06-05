@@ -3,7 +3,7 @@
   Source of truth: profile/data.yaml
   Build:           profile/build.ts
   Pipeline:        .github/workflows/build-profile.yml (nightly @ 03:00 UTC)
-  Generated:       2026-06-04T07:28:43.101Z
+  Generated:       2026-06-05T07:13:44.329Z
 -->
 
 <div align="center">
@@ -262,7 +262,7 @@ Unifies mobile-web vibration across iOS (the checkbox-switch workaround for Safa
 <sub>
   built from <code>profile/build.ts</code> ·
   pinged demos ·
-  regenerated nightly · last build <code>2026-06-04T07:28:43.101Z</code>
+  regenerated nightly · last build <code>2026-06-05T07:13:44.329Z</code>
 </sub>
 
 </div>
