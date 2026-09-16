@@ -16,8 +16,8 @@
 
 <br />
 
-[![graphlit · live](https://img.shields.io/website?url=https%3A%2F%2Fgraphlit.kushagragolash.tech&label=graphlit&style=for-the-badge&up_color=5EC8FF&up_message=live&down_color=ffb000&down_message=offline&logo=neo4j&logoColor=white&labelColor=0D1117)](https://graphlit.kushagragolash.tech)
-[![addressparser · live](https://img.shields.io/website?url=https%3A%2F%2Faddressparser.kushagragolash.tech&label=addressparser&style=for-the-badge&up_color=5EC8FF&up_message=live&down_color=ffb000&down_message=offline&logo=fastapi&logoColor=white&labelColor=0D1117)](https://addressparser.kushagragolash.tech)
+[![graphlit · live](https://img.shields.io/website?url=https%3A%2F%2Fgraphlit.kushagragolash.dev&label=graphlit&style=for-the-badge&up_color=5EC8FF&up_message=live&down_color=ffb000&down_message=offline&logo=neo4j&logoColor=white&labelColor=0D1117)](https://graphlit.kushagragolash.dev)
+[![addressparser · live](https://img.shields.io/website?url=https%3A%2F%2Faddressparser.kushagragolash.dev&label=addressparser&style=for-the-badge&up_color=5EC8FF&up_message=live&down_color=ffb000&down_message=offline&logo=fastapi&logoColor=white&labelColor=0D1117)](https://addressparser.kushagragolash.dev)
 
 </div>
 
@@ -78,7 +78,7 @@ Gemini Flash Lite vision scoring on Next.js 16 with Firebase 12 persistence. Han
 <tr>
 <td width="55%" valign="middle">
 
-<a href="https://graphlit.kushagragolash.tech">
+<a href="https://graphlit.kushagragolash.dev">
   <img src="./metrics/screenshot-graphlit.png" alt="graphlit-expansion live screenshot" width="100%" />
 </a>
 
@@ -95,7 +95,7 @@ Idempotent BFS through 1,000-paper expansions in 20-40 min · Louvain communitie
 
 `Python 3.14` · `Neo4j 6.1` · `FastAPI` · `Pydantic` · `Louvain` · `PageRank`
 
-[**↗ Live Demo**](https://graphlit.kushagragolash.tech)
+[**↗ Live Demo**](https://graphlit.kushagragolash.dev)
 
 </td>
 </tr>
@@ -123,7 +123,7 @@ Unifies mobile-web vibration across iOS (the checkbox-switch workaround for Safa
 <tr>
 <td width="55%" valign="middle">
 
-<a href="https://addressparser.kushagragolash.tech">
+<a href="https://addressparser.kushagragolash.dev">
   <img src="./metrics/screenshot-addressparser.svg" alt="indian-address-parser live screenshot" width="100%" />
 </a>
 
@@ -140,7 +140,7 @@ Unifies mobile-web vibration across iOS (the checkbox-switch workaround for Safa
 
 `PyTorch` · `IndicBERTv2-SS` · `CRF layer` · `FastAPI` · `Cloud Run`
 
-[**↗ Live Demo**](https://addressparser.kushagragolash.tech)
+[**↗ Live Demo**](https://addressparser.kushagragolash.dev)
 
 </td>
 </tr>

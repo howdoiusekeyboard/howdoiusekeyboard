@@ -29,10 +29,10 @@ currentTodos:
 
 demos:
   - name: graphlit
-    url: https://graphlit.kushagragolash.tech
+    url: https://graphlit.kushagragolash.dev
     logo: neo4j
   - name: addressparser
-    url: https://addressparser.kushagragolash.tech
+    url: https://addressparser.kushagragolash.dev
     logo: fastapi
 
 projects:
@@ -59,7 +59,7 @@ projects:
   - slug: graphlit-expansion
     category: Graph / Backend
     paired: false
-    demoUrl: https://graphlit.kushagragolash.tech
+    demoUrl: https://graphlit.kushagragolash.dev
     tagline: Academic citation graph expansion + hybrid recommender over OpenAlex and Neo4j.
     blurb: >-
       Idempotent BFS through 1,000-paper expansions in 20-40 min · Louvain
@@ -87,7 +87,7 @@ projects:
   - slug: indian-address-parser
     category: ML / NLP
     paired: false
-    demoUrl: https://addressparser.kushagragolash.tech
+    demoUrl: https://addressparser.kushagragolash.dev
     tagline: Fine-tuned IndicBERTv2-SS + CRF that decomposes messy Indian addresses into 15 structured entities.
     blurb: >-
       94.3% F1 on test set (most entities >95%) · ~25 ms avg inference,

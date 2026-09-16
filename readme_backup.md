@@ -145,7 +145,7 @@ Launch of **EcoQuest** - Gamified sustainability platform weaponizing psychology
   <a href="https://github.com/howdoiusekeyboard">
     <img src="https://img.shields.io/badge/GITHUB-THE_MAINFRAME-00FF41?style=for-the-badge&logo=github&logoColor=white" />
   </a>
-  <a href="https://www.kushagragolash.tech">
+  <a href="https://www.kushagragolash.dev">
     <img src="https://img.shields.io/badge/PORTFOLIO-BATCAVE_CONSOLE-00D1FF?style=for-the-badge&logo=vercel&logoColor=white" />
   </a>
 </div>
@@ -290,7 +290,7 @@ transmissions:
   <a href="https://github.com/howdoiusekeyboard">
     <img src="https://img.shields.io/badge/GITHUB-THE_MAINFRAME-00FF41?style=for-the-badge&logo=github&logoColor=white" />
   </a>
-  <a href="https://www.kushagragolash.tech">
+  <a href="https://www.kushagragolash.dev">
     <img src="https://img.shields.io/badge/PORTFOLIO-BATCAVE_CONSOLE-00D1FF?style=for-the-badge&logo=vercel&logoColor=white" />
   </a>
 </div>
